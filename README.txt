@@ -5,7 +5,7 @@
 
 1) Bootstrap is used for styling
 https://getbootstrap.com/docs/5.0/getting-started/introduction/
-
+ a)  grid system https://getbootstrap.com/docs/4.0/layout/grid/
 
 2) Postman is used to test APIs before implementing in the code
 https://www.postman.com/
