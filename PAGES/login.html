@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS (requires Popper.js for modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <script src="loginRegister.js"></script>
+    <script src="../script.js"></script>
+
+   
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <div class="container MyLoginDesign"> <!--MyLoginDesign is my own class for font, container is from bootstrap-->
+            <h2 id="formTitle">Login</h2>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <!-- Username input -->
+                <input type="text" id="loginUsername" class="form-control" required />
+                <label class="form-label" for="loginUsername">Username</label>
+
+                <!-- Password input  -->
+                <input type="password" id="loginPassword" class="form-control" required />
+                <label class="form-label" for="loginPassword">Password</label>
+
+                <!-- Submit button  -->
+                <button type="submit" class="btn btn-primary btn-block mb-4 w-100"
+                    onclick="handleLogin(event)">Login </button>
+                
+                <!-- Alert for displaying login/register errors -->
+                <div id="loginAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+            </form>
+            <div> Don't have an account?  <a href ="#" onclick="navigateTo('register')">Register</a>  </div> 
+        </div>
+        
+        <iframe src="footer.html"></iframe>
+    </div>
+</body>
+
+</html>

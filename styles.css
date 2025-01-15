@@ -1,0 +1,262 @@
+html, body {
+  height: 100%;
+  margin: 0; /* Remove default margin */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Times New Roman', Times, serif !important;
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  width: 100%; /* Ensure iframes don't exceed viewport width */
+}
+/* Use box-sizing: border-box; globally to prevent unintended width overflow caused by padding or borders */
+* {
+  box-sizing: border-box;
+}
+
+.navbar-dark  { 
+  background-color:  red ;
+}
+.navbar a {
+  color: white;
+}
+.navbar a:hover {
+  color: orange;
+}
+.imgTitle {
+  height: 50px;
+  width: 100%;
+}
+.my-title {
+  height: 10px;
+}
+
+
+/*for the contact pop up widnow*/
+.modal-body{ 
+  height: 100% !important;
+  width: 100% !important;
+}
+.modal-footer{
+  padding: 3px !important;
+}
+.modal-content{
+  height: 530px;
+}
+.modal-header{
+  height: 50px !important;
+}
+
+
+/* Full-screen video background container */
+.video-bg {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+/* Video settings */
+.video-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Overlay for content */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black (0, 0, 0);
+  /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Text on top of the background */
+.overlay h1 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px black (0, 0, 0);
+}
+.MyLoginDesign {
+  width: 300px;
+  padding-top: 50px;
+  min-height: calc(100vh - 150px); /* Ensure the wrapper is full height */
+}
+iframe {
+  width: 100% ;
+  height: 99%;
+  border: none;
+}
+.MainContent {
+  /*height: calc(100%-100px);*/ /* Full viewport height */
+  height: 100%; /*to remove scroller*/
+  display: flex; /*insures children elements are streched */
+  font-family:'Times New Roman', Times, serif;
+  padding-top: 75px;
+ 
+}
+
+
+/* Wrapper to contain content and footer */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push footer to the bottom */
+  min-height: 100vh; /* Ensure the wrapper is full height */
+}
+.footerFrame{
+  width: 100%;
+  height: 150px !important;
+  border: none;
+  margin-top: auto; /* Push the footer to the bottom */
+}
+.footerContent {
+  height: 150px;
+  overflow: hidden;
+}
+.footer-text{
+  position: absolute;       /* Places text over the image */
+  top: 25%;                 /* Center vertically */
+  left: 50%;                /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+  color: white;             /* Text color for contrast */
+  font-size: 40px;          /* Adjust font size */
+  text-align:  center;
+}
+
+
+
+
+.headerFrame{
+  width: 100%;
+  height:200px;
+  border: none;
+  margin-top: 0px;
+}
+.headerContent {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+
+
+/************* About Us styling  *************/
+/* Style for the yellow line */
+.customtitle {
+  text-align: center;
+  margin-bottom: 20px; /* Add spacing between the section and the next element */
+  margin-top: 20px; /* Add spacing between the section and the next element */
+
+}
+.customtitle .yellow-line {
+  width: 800px; /* Adjust width of the line */
+  height: 2px; /* Adjust thickness of the line */
+  margin: 0 auto; /* Center the line horizontally */
+  background-color: orange; /* Yellow color */
+}
+.customtitle h1 {
+  text-align: center;
+  font-size: 1.5rem; /* Adjust font size */
+  font-weight: bold; /* Make it bold */
+  margin-bottom: 10px; /* Add space between the text and the line */
+}
+/* Style for the header section */
+.page-section {
+  text-align: center;
+  margin-bottom: 20px; /* Add spacing between the section and the next element */
+}
+/* Style for the header text */
+.page-section h2 {
+  font-size: 1.1rem; /* Adjust the overall font size */
+  color: #800000; /* Dark red/maroon for text and icon */
+  font-weight: bold; /* Bold text */
+}
+.page-section h2 i {
+  margin-right: 10px; /* Spacing between the icon and text */
+  color: #800000; /* Same color as the text */
+  font-size: 1.5rem; /* Match icon size with text */
+}
+/* Style for the header text */
+.page-section h3 {
+  font-size: 1.0rem; /* Adjust font size */
+  font-weight: bold; /* Make it bold */
+  margin-bottom: 10px; /* Add space between the text and the line */
+}
+/* Style for the header text */
+.page-section h4 {
+  font-size: 0.8rem; /* Adjust font size */
+  font-weight: bold; /* Make it bold */
+  margin-bottom: 10px; /* Add space between the text and the line */
+}
+/* Style for the col-md-4 elements */
+.col-md-4 {
+  background-color: #f8f9fa; /* Light gray background */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  padding: 20px; /* Add some padding inside the box */
+  margin-bottom: 20px; /* Add spacing between rows */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+/* Style for the row */
+.st-4 {
+  padding-left: 15px; /* Add padding to the left */
+  padding-right: 15px; /* Add padding to the right */
+  margin-left: auto; /* Center content horizontally */
+  margin-right: auto; /* Center content horizontally */
+  max-width: 1200px; /* Optional: Restrict the row width for better layout */
+}
+
+
+
+.logo-img {
+  height: 40px; /* Set the height to 40px */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+
+
+
+.textItalic {
+  font-style: italic; /* Make the text italic */
+  font-size: small; /* Adjust font size */
+  padding-left: 120px; /* Add padding to the left */
+  padding-right: 120px; /* Add padding to the right */
+}
+
+
+
+/*---------------------------------------------------for mobile*----------------------------------------------*/
+
+@media (max-width: 768px) {
+  /* Adjust the modal size */
+  .modal.modal-xl {
+    max-width: none;
+  }
+
+  /* Adjust the modal dialog for mobile */
+  .modal-dialog {
+    max-width: 95%; /* Ensure some padding from the screen edges */
+  }
+
+  .footer-text{
+    font-size: 25px;          /* Adjust font size */
+    transform: translate(-60%, -30%);
+  }
+
+  .textItalic {
+    padding-left: 10px; /* Add padding to the left */
+    padding-right: 10px; /* Add padding to the right */
+  }
+
+
+}
+

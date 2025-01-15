@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS (requires Popper.js for modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!--font awesome icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <title>Algebra University</title>
+</head>
+
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+        
+        <div class="container-fluid">
+
+            <!--logo image -->
+            <a class="navbar-brand" href="index.html">
+                <img class="imgTitle" src="IMAGES/Algebra-logo.png">
+            </a>
+
+            <!-- title brand -->
+            <a class="navbar-brand" href="index.html">Algebra University</a>
+
+            <!-- Hamburger button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible menu items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+
+                <!-- Main Navbar -->
+                <!--
+                    d-flex, d-none  - for showing and hiding elements
+                    https://getbootstrap.com/docs/5.0/utilities/flex/
+                    https://getbootstrap.com/docs/5.0/utilities/display/#hiding-elements
+                -->
+                <ul id="mainMenu" class="navbar-nav ms-auto d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html" onclick="navigateTo('main')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateTo('aboutUs')">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" 
+                        onclick="loadModalContent('news')">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal"
+                         onclick="navigateTo('curriculum')">Curriculum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" 
+                        onclick="loadModalContent('contact')">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateTo('login')">Login/Register</a>
+                    </li>
+                    <!--<li class="nav-item" id="userInfoMenu" style="display: none;">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" 
+                        onclick="loadModalContent('userInfo')">User Info</a>
+                    </li>-->
+                </ul>
+
+                <!-- AboutUs Navbar -->
+                <ul id="aboutUsMenu" class="navbar-nav ms-auto d-none">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateToSection('#our-values')">Our values</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateToSection('#history')">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateToSection('#algebra-group')">Algebra Group</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="navigateToSection('#how-to-reach')">How to Reach Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full-screen video background section -->
+    <div class="video-bg" id ="DefaultVideo" style="display:block;">
+        <video autoplay muted loop>
+            <source src= "IMAGES/typingLaptop.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1>Welcome to Algebra University</h1>
+        </div>
+    </div>
+
+    <!--Main content which replaces the default video-->
+    <div class="MainContent" id = "MainContent"style="display:none;"></div>
+
+    <!-- Modal View/ pop-up window  -->
+    <div class="modal fade modal-l" id="unifiedModal" tabindex="-1" aria-labelledby="unifiedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title my-title" id="modalTitle">Modal Title</h5>
+                </div>
+                <div  class = "modal-body" id="modalBodyContent">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
