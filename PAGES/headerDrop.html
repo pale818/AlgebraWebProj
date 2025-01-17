@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <div class="headerDropFrame">
+        <div class="image-container">
+            <!-- Image element where the src will be set dynamically -->
+            <img id="dynamicImage" src="">
+        </div>
+    </div>
+
+    <script>
+        // Function to get query parameters
+        function getQueryParam(param) {
+            // window.location.search to reads the query parameter in the iframe
+            // Extract the image parameter using the URLSearchParams API.
+            const params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        // call the function getQueryParam and get the image URL
+        const imageUrl = getQueryParam('image');
+
+        // Dynamically set the image src using getElementById and setting the src attribute
+        if (imageUrl) {
+            document.getElementById('dynamicImage').src = imageUrl;
+        } else {
+            console.error("No image URL provided");
+        }
+    </script>
+
+</body>
+
+</html>

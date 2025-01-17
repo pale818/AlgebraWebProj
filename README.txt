@@ -22,16 +22,9 @@ https://www.geeksforgeeks.org/how-to-enable-live-server-on-visual-studio-code/
 https://dev.to/hardiquedasore/how-to-embed-google-map-without-api-key-1ii7
 
 
-5) Better solution for server is to install node from 
-https://nodejs.org/en/download
-
-and in some terminal like Git Bash install in the root folder live server
-https://www.npmjs.com/package/live-server
-
-command:
-npm install -g live-server
-
-after that live server has to be started form working foldler with:
-live-server
-It starts web site on localhos:8080
-
+5) CSS some tutorials for animations:
+    1) @keyframes https://www.w3schools.com/cssref/atrule_keyframes.php
+    2) https://www.joshwcomeau.com/animation/keyframe-animations/
+    3) https://dev.to/dawkaka/css-animation-a-circle-with-smaller-circles-orbiting-it-307f
+    4) https://js6450.github.io/fundamental-css-animation.html
+    5) https://dev.to/eidorianavi/an-introduction-to-animation-and-keyframes-in-css-30mi

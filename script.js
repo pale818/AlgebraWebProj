@@ -49,6 +49,7 @@ function loadMainContent(menu) {
     login: "PAGES/login.html",
     register: "PAGES/register.html",
     aboutUs: "PAGES/aboutUs.html",
+    news: "PAGES/news.html",
 
   };
   const filePath = pages[menu]; //menu = key, pages finds value for that  key which loads into filepath

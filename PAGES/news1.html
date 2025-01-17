@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS (requires Popper.js for modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- font awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Optional: Adjust thumbnail styling */
+
+        .gallery{
+        
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 100%; /* Fixed height for consistency */
+            cursor: pointer;
+            border-radius: 5px;
+            object-fit: cover; /* fits column to the image */
+            margin: auto; /* center content */
+            filter: blur(1px) !important;
+           
+        }
+
+        /* Remove blur on hover */
+        .gallery img:hover {
+            filter: blur(0px) !important;
+            transition: filter 0.5s ease-in-out ;
+        }
+        
+    </style>
+
+    <title>News</title>
+</head>
+
+
+<body>
+   
+    <iframe src = "headerDrop.html?image=../IMAGES/novost1.jpg" class = "headerDropFrame"></iframe>
+
+
+    <div class="customtitle">
+        <h1>WorldSkills Competition - Kazan 2019</h1>
+        <div class="yellow-line"></div>
+    </div><br>
+    <div style="font-style: italic; padding-left: 30px; padding-right: 30px;">
+    <p>After a year of preparation for the WorldSkills competition
+        Kazan 2019, which was attended by 1300 competitors from
+        all over the world, the effort really paid off. Joseph,
+        student of the 3rd year of undergraduate studies in systems
+        of Engineering won 12th place in the IT skill
+        Networks and System Administration and won a medal
+        excellence! Congratulations to Josip, but also to his/ours
+        mentors who prepared him for this competition -
+        to the head of systems engineering studies, Silvio
+        To Papić, head of the Department of Operating Systems -
+        Vedran Dakić and an assistant in the study of systems
+        of Engineering – Jasmin Redžepagić. Congratulations to ours too
+        to a 3rd-year undergraduate program student
+        of engineering to Josip Horvat and mentor to the head of the department
+        for software engineering - Goran Đambic for winning
+        16th place in the skill IT Software Solutions for Business.</p> </div>
+
+
+    <!-- Image Gallery -->
+    <!--<div class="row gallery">
+        <div class="col-md-6">
+            <img src="../IMAGES/galerija1.jpg" alt="Image 1" class="img-fluid" data-bs-toggle="modal" onclick="showImage(this)">
+        </div>
+        <div class="col-md-6">
+            <img src="../IMAGES/galerija2.jpg" alt="Image 2" class="img-fluid" data-bs-toggle="modal" onclick="showImage(this)">
+        </div>
+    </div>-->
+
+
+    <div class="gallery">
+        <div>
+            <img src="../IMAGES/galerija1.jpg" style="padding-right: 10px;" class="img-fluid" data-bs-toggle="modal" onclick="showImage('../IMAGES/galerija1.jpg')">
+
+            <img src="../IMAGES/galerija2.jpg" style="padding-left: 10px;" class="img-fluid" data-bs-toggle="modal" onclick="showImage(this)">
+        </div>
+    </div>
+    <br>
+
+    <div class="gallery">
+    <video width="400px" height="100%" controls>
+        <source src = "../IMAGES/worldskills.mp4" type="video/mp4">
+    </video>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img id="modalImage" class="img-fluid" alt="Expanded Image">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <script>
+        // Function to update modal image
+        function showImage(element) {
+            document.getElementById("modalImage").src = element.src;
+        }
+    </script>
+
+
+    <iframe src="footer.html" class = "footerFrame"></iframe>
+</body>
+
+</html>
