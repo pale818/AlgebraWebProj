@@ -16,43 +16,15 @@
 
 
     <link rel="stylesheet" href="../styles.css">
-    <style>
-        /* Optional: Adjust thumbnail styling */
-
-        .gallery{
-        
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-          
-        }
-
-        .gallery img {
-            width: 200px;
-            height: 100%; /* Fixed height for consistency */
-            cursor: pointer;
-            border-radius: 5px;
-            object-fit: cover; /* fits column to the image */
-            margin: auto; /* center content */
-            filter: blur(1px) !important;
-           
-        }
-
-        /* Remove blur on hover */
-        .gallery img:hover {
-            filter: blur(0px) !important;
-            transition: filter 0.5s ease-in-out ;
-        }
-        
-    </style>
-
+    <script src = "../script.js" ></script>
+   
     <title>News</title>
 </head>
 
 
 <body>
    
-    <iframe src = "headerDrop.html?image=../IMAGES/novost1.jpg" class = "headerDropFrame"></iframe>
+    <iframe src="headerDrop.html?image=../IMAGES/novost1.jpg&title=WorldSkills Competition&description=The biggest event in global skill education." class="headerDropFrame"></iframe>
 
 
     <div class="customtitle">
@@ -78,46 +50,19 @@
         16th place in the skill IT Software Solutions for Business.</p> </div>
 
 
-    <!-- Image Gallery -->
-    <!--<div class="row gallery">
-        <div class="col-md-6">
-            <img src="../IMAGES/galerija1.jpg" alt="Image 1" class="img-fluid" data-bs-toggle="modal" onclick="showImage(this)">
-        </div>
-        <div class="col-md-6">
-            <img src="../IMAGES/galerija2.jpg" alt="Image 2" class="img-fluid" data-bs-toggle="modal" onclick="showImage(this)">
-        </div>
-    </div>-->
-
 
     <div class="gallery">
-        <div>
-            <img src="../IMAGES/galerija1.jpg" style="padding-right: 10px;" class="img-fluid" data-bs-toggle="modal" onclick="showImage('../IMAGES/galerija1.jpg')">
-
-            <img src="../IMAGES/galerija2.jpg" style="padding-left: 10px;" class="img-fluid" data-bs-toggle="modal" onclick="showImage(this)">
-        </div>
+        <img src="../IMAGES/galerija1.jpg" onclick="navigateTo('gallery','news1', 0)">
+        <img src="../IMAGES/galerija2.jpg" onclick="navigateTo('gallery','news1', 1)">
     </div>
     <br>
 
     <div class="gallery">
-    <video width="400px" height="100%" controls>
+    <video width="500px" height="100%" controls>
         <source src = "../IMAGES/worldskills.mp4" type="video/mp4">
     </video>
     </div>
 
-    <!-- Image Modal -->
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <img id="modalImage" class="img-fluid" alt="Expanded Image">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
 
     <script>
         // Function to update modal image
@@ -126,6 +71,7 @@
         }
     </script>
 
+    <br>
 
     <iframe src="footer.html" class = "footerFrame"></iframe>
 </body>

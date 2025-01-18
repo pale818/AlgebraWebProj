@@ -26,7 +26,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
 
         
         <div class="container-fluid">
@@ -101,9 +101,23 @@
                         <a class="nav-link" onclick="navigateToSection('#how-to-reach')">How to Reach Us</a>
                     </li>
                 </ul>
+
+
+                <!--------------------Navigation for Gallery (x button)-------------------------->
+                <ul id="galleryMenu" class="navbar-nav ms-auto d-none">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-x" onclick="navigateTo('news1')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </li>
+                </ul>
+
+
             </div>
         </div>
     </nav>
+
+    
 
     <!-- Full-screen video background section -->
     <div class="video-bg" id ="DefaultVideo" style="display:block;">
@@ -130,13 +144,11 @@
                     <!-- Content will be loaded dynamically -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
-
 
 
 </body>

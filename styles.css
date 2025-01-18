@@ -1,3 +1,5 @@
+/*--------------------------------------------------- STYLING FOR THE WHOLE PAGE ----------------------------------------------*/
+
 html, body {
   height: 100%;
   margin: 0; /* Remove default margin */
@@ -11,9 +13,12 @@ html, body {
 * {
   box-sizing: border-box;
 }
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
+
+/*--------------------------------------------------- STYLING FOR NAVIGATION BAR ----------------------------------------------*/
 .navbar-dark  { 
-  background-color:  red ;
+  background-color:  black ;
 }
 .navbar a {
   color: white;
@@ -30,7 +35,10 @@ html, body {
 }
 
 
-/*for the contact pop up widnow*/
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------- STYLING FOR MODAL VIEW --------------------------------------------------*/
 .modal-body{ 
   height: 100% !important;
   width: 100% !important;
@@ -45,8 +53,17 @@ html, body {
   height: 50px !important;
 }
 
+.btn-close {
+  background-color: rgba(49, 115, 239, 0.912) !important;
+  border: none !important;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
-/* Full-screen video background container */
+
+
+
+
+/*--------------------------------------------------- STYLING FOR BACKGROUND VIDEO ---------------------------------------------*/
 .video-bg {
   position: relative;
   height: 100vh;
@@ -65,7 +82,6 @@ html, body {
   z-index: -1;
   transform: translate(-50%, -50%);
 }
-
 
 /* Overlay for content */
 .overlay {
@@ -86,6 +102,12 @@ html, body {
   font-size: 3rem;
   text-shadow: 2px 2px 5px black (0, 0, 0);
 }
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------- STYLING FOR BACKGROUND VIDEO ---------------------------------------------*/
+
 .MyLoginDesign {
   width: 300px;
   padding-top: 50px;
@@ -102,17 +124,13 @@ iframe {
   display: flex; /*insures children elements are streched */
   font-family:'Times New Roman', Times, serif;
   padding-top: 75px;
- 
 }
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
-/* Wrapper to contain content and footer */
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Push footer to the bottom */
-  min-height: 100vh; /* Ensure the wrapper is full height */
-}
+
+
+/*--------------------------------------------------- STYLING FOR FOOTER----------------------------------*/
 .footerFrame{
   width: 100%;
   height: 150px !important;
@@ -132,26 +150,44 @@ iframe {
   font-size: 40px;          /* Adjust font size */
   text-align:  center;
 }
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-
+/*--------------------------------------------------- HEADER FRAME FOR ABOUT US -----------------------------------------------*/
 .headerFrame{
   width: 100%;
   height:200px;
   border: none;
   margin-top: 0px;
 }
+.logo-img {
+  height: 40px; /* Set the height to 40px */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+.textItalic {
+  font-style: italic; /* Make the text italic */
+  font-size: small; /* Adjust font size */
+  padding-left: 120px; /* Add padding to the left */
+  padding-right: 120px; /* Add padding to the right */
+}
+.backgroundLocation{
+ background-image: url("IMAGES/kakoDoNas.jpg");
+
+}
+.googleMaps{
+  width: 100%;
+  height: 400px;
+}
 .headerContent {
   height: 100%;
   overflow: hidden;
 }
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-
-/************* About Us styling  *************/
-/* Style for the yellow line */
+/*--------------------------------------------------- STYLING FOR NEWS --------------------------------------------------------*/
 .customtitle {
   text-align: center;
   margin-bottom: 20px; /* Add spacing between the section and the next element */
@@ -233,58 +269,15 @@ iframe {
   margin-right: auto; /* Center content horizontally */
   max-width: 1200px; /* Optional: Restrict the row width for better layout */
 }
-
-
-
-.logo-img {
-  height: 40px; /* Set the height to 40px */
-  object-fit: contain; /* Ensure the image maintains its aspect ratio */
-}
-
-
-
-.textItalic {
-  font-style: italic; /* Make the text italic */
-  font-size: small; /* Adjust font size */
-  padding-left: 120px; /* Add padding to the left */
-  padding-right: 120px; /* Add padding to the right */
-}
-
-.LocationRow{
-
-  background-color: #f8f9fa; /* Light gray background */
-  border: 1px solid #ddd; /* Light gray border */
-  border-radius: 5px; /* Optional: Add rounded corners */
-  padding: 20px; /* Add some padding inside the box */
-  margin-bottom: 20px; /* Add spacing between rows */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-  padding-left: 150px; /* Add padding to the left */
-  padding-right: 150px; /* Add padding to the right */
-
-}
-.backgroundLocation{
- background-image: url("IMAGES/kakoDoNas.jpg");
-
-}
-
-
-.googleMaps{
-
-  width: 100%;
-  height: 400px;
-  /*padding-left: 30px;
-  padding-right: 30px;
-*/
-}
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
 
 
 
 
-/*---------------------------------------NEWS-------------------------------------*/
 
-/*--------------------------------------------------- NEWS STYLING WITH CIRCLE ----------------------------------------------*/
+/*--------------------------------------------------- CIRCLES FOR THE NEWS  ----------------------------------------------------*/
 /* Styling for circular images */
 .circle-container {
   display: flex;
@@ -334,40 +327,153 @@ iframe {
   font-size: 12px;
   text-align: center;
 }
+/*  Center Text in the Middle of the Circle */
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers text exactly */
+  text-align: center;
+  width: 80%; /* Ensures text doesn't overflow */
+}
+/* Title Styling (Yellow) */
+.circle-text h3 {
+  color: yellow;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+/* Description Styling (White) */
+.circle-text p {
+  color: white;
+  font-size: 25px;
+  margin: 0;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
-/*--------------------------------------------------- NEWS STYLING ----------------------------------------------*/
-
-/*--------------------------------------------------- IMAGE DOWN STYLING ----------------------------------------------*/
-.headerDropFrame{
-  flex-shrink: 0; /* Prevent shrinking of the image container */
-  height:250px;
+/*----------------------------------------- HEADER IMAGE FOR NEWS TRANSITION DOWN ----------------------------------------------*/
+/*  Ensure the container takes full width */
+.headerDropFrame {
+  flex-shrink: 0;
+  height: 250px;
   overflow: hidden;
 }
-/* Container for the image */
-/* Styling for the image */
-.image-container img {
-    width: 100%; /* Full width */
-    height: 300; /* Fixed height */
-    object-fit: cover; /* Maintain aspect ratio */
-    transform: translateY(-100%); /* Start above the container */
-    animation: dropDown 1.5s ease-out forwards; /* Drop down animation */
+/* Image container (Moves the whole block) */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 370px;
+  display: flex;
+  align-items: center;  /* Ensures text stays centered vertically */
+  justify-content: center; /* Ensures text stays centered horizontally */
 }
-/* Drop-down animation */
+/* Animate both image & text together */
+.image-container img,
+.image-text {
+  position: absolute; /* Makes both image & text overlap */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateY(-100%); /* Start above the viewport */
+  animation: dropDown 1.5s ease-out forwards; /* Drop-down animation */
+}
+
+/*  Drop-down animation for both image and text */
 @keyframes dropDown {
-    0% {
-        transform: translateY(-100%); /* Start above the viewport */
-    }
-    100% {
-        transform: translateY(0); /* Drop into position */
-    }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
-/*--------------------------------------------------- IMAGE DOWN STYLING ----------------------------------------------*/
+
+/* Text overlay (always centered in image) */
+.image-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 80%;
+}
+
+/* Yellow title */
+.image-text h2 {
+  color: yellow;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* White description */
+.image-text p {
+  color: white;
+  font-size: 36px;
+  margin: 0;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------- IMAGE GALLERY STYLING ----------------------------------------------*/
+/*  Center only the gallery inside the iframe */
+.gallery-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Make sure it has enough height */
+  background-color: black;
+}
+.carousel {
+  /* center the carousel */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height:100%;
+    margin: auto;
+}
+.btn-x {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  color: white !important;
+}
+
+/*  Thumbnail Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 200px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  filter: blur(1px) !important;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  filter: blur(0px) !important;
+  transition: filter 0.5s ease-in-out ;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-/*---------------------------------------------------for mobile*----------------------------------------------*/
 
+/*--------------------------------------------------- MOBILE SCREEN -----------------------------------------------------------*/
 
 @media (max-width: 768px) {
   /* Adjust the modal size */
@@ -405,3 +511,4 @@ iframe {
   
   }
 }
+/*-----------------------------------------------------------------------------------------------------------------------------*/

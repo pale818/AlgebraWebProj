@@ -9,29 +9,38 @@
 
     <div class="headerDropFrame">
         <div class="image-container">
-            <!-- Image element where the src will be set dynamically -->
+            <!-- Image and text inside the same container to move together -->
             <img id="dynamicImage" src="">
+
+            <!-- Title & description (stuck inside the image) -->
+            <div class="image-text">
+                <h2 id="imageTitle">News Title</h2>
+                <p id="imageDescription">Short description about this news.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Function to get query parameters
+        // Function to extract query parameters
         function getQueryParam(param) {
-            // window.location.search to reads the query parameter in the iframe
-            // Extract the image parameter using the URLSearchParams API.
             const params = new URLSearchParams(window.location.search);
             return params.get(param);
         }
 
-        // call the function getQueryParam and get the image URL
+        // Get image URL from query params
         const imageUrl = getQueryParam('image');
-
-        // Dynamically set the image src using getElementById and setting the src attribute
         if (imageUrl) {
             document.getElementById('dynamicImage').src = imageUrl;
         } else {
             console.error("No image URL provided");
         }
+
+        // Get title & description from query params
+        const imageTitle = getQueryParam('title') || "Default Title";
+        const imageDescription = getQueryParam('description') || "Default description for this news.";
+        document.getElementById('imageTitle').textContent = imageTitle;
+        document.getElementById('imageDescription').textContent = imageDescription;
+        
     </script>
 
 </body>

@@ -50,6 +50,8 @@ function loadMainContent(menu) {
     register: "PAGES/register.html",
     aboutUs: "PAGES/aboutUs.html",
     news: "PAGES/news.html",
+    gallery: "PAGES/gallery.html",
+    news1: "PAGES/news1.html",
 
   };
   const filePath = pages[menu]; //menu = key, pages finds value for that  key which loads into filepath
@@ -154,18 +156,30 @@ function navigateToSection(sectionId) {
 function setNeweMenus(menu) {
   const mainMenu = document.getElementById("mainMenu");
   const aboutUsMenu = document.getElementById("aboutUsMenu");
+  const galleryMenu = document.getElementById("galleryMenu");
 
-  if (menu == 'main') {
-      //
-      mainMenu.classList.remove("d-none");
-      mainMenu.classList.add("d-flex");
-      aboutUsMenu.classList.remove("d-flex");
-      aboutUsMenu.classList.add("d-none");
-  } else if (menu === 'aboutUs') {
-      mainMenu.classList.remove("d-flex");
-      mainMenu.classList.add("d-none");
+  mainMenu.classList.remove("d-none");
+  mainMenu.classList.add("d-flex");
+
+  aboutUsMenu.classList.remove("d-flex");
+  aboutUsMenu.classList.add("d-none");
+
+  galleryMenu.classList.remove("d-flex");
+  galleryMenu.classList.add("d-none");
+
+  
+
+  if (menu === 'aboutUs') {
       aboutUsMenu.classList.remove("d-none");
       aboutUsMenu.classList.add("d-flex");
-  }
+  } else if (menu === 'gallery'){
+    galleryMenu.classList.remove("d-none");
+    galleryMenu.classList.add("d-flex");
+  } else  {
+    return; 
+  } 
+
+  mainMenu.classList.remove("d-flex");
+  mainMenu.classList.add("d-none");
 }
 /*****************************************************************************************************/ 
