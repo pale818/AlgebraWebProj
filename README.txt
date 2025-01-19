@@ -6,6 +6,11 @@
 1) Bootstrap is used for styling
 https://getbootstrap.com/docs/5.0/getting-started/introduction/
  a)  grid system https://getbootstrap.com/docs/4.0/layout/grid/
+ b) carousel:
+    https://getbootstrap.com/docs/5.3/components/carousel/
+    https://www.w3schools.com/bootstrap5/bootstrap_carousel.php
+
+
 
 2) Postman is used to test APIs before implementing in the code
 https://www.postman.com/

@@ -339,16 +339,18 @@ iframe {
 /* Title Styling (Yellow) */
 .circle-text h3 {
   color: yellow;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
   margin: 5px 0;
 }
 /* Description Styling (White) */
 .circle-text p {
   color: white;
-  font-size: 25px;
+  font-size: 15px;
   margin: 0;
 }
+
+
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 

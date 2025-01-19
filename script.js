@@ -30,7 +30,8 @@ function loadModalContent(menu) {
 /*****************************************************************************************************/ 
 
 // functions responsible for handling navigation, dinamically loading pages in the MainContent
-function navigateTo(pageName) {
+function navigateTo(pageName, imageIndex = null) {
+  sessionStorage.setItem("imageIndex", imageIndex);
   // Call loadPageContent in the parent context
   if (window.parent && typeof window.parent.loadMainContent === "function") {
     window.parent.loadMainContent(pageName);

@@ -14,7 +14,6 @@
 
             <!-- Title & description (stuck inside the image) -->
             <div class="image-text">
-                <h2 id="imageTitle">News Title</h2>
                 <p id="imageDescription">Short description about this news.</p>
             </div>
         </div>
@@ -36,9 +35,7 @@
         }
 
         // Get title & description from query params
-        const imageTitle = getQueryParam('title') || "Default Title";
-        const imageDescription = getQueryParam('description') || "Default description for this news.";
-        document.getElementById('imageTitle').textContent = imageTitle;
+        const imageDescription = getQueryParam('description') || "";
         document.getElementById('imageDescription').textContent = imageDescription;
         
     </script>
