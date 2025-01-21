@@ -53,7 +53,7 @@ function loadMainContent(menu) {
     news: "PAGES/news.html",
     gallery: "PAGES/gallery.html",
     news1: "PAGES/news1.html",
-
+    curriculum : "PAGES/curriculum.html",
   };
   const filePath = pages[menu]; //menu = key, pages finds value for that  key which loads into filepath
   if (!filePath){

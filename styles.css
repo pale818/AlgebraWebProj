@@ -53,9 +53,10 @@ html, body {
   height: 50px !important;
 }
 
-.btn-close {
+.btn-Myclose {
   background-color: rgba(49, 115, 239, 0.912) !important;
   border: none !important;
+  color: white !important;
 }
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 

@@ -34,16 +34,16 @@ function handleLogin(event) {
                 // Store the token in sessionStorag (or sessionStorage if preferred)
                 sessionStorage.setItem('jwtToken', data.data.token);
 
-                //alert("Login successful!");
+                // You can also store other information like username if needed
+                sessionStorage.setItem('username', data.data.username);
+
+                 //alert("Login successful!");
                 // Set success message
                 const loginAlert = document.getElementById("loginAlert");
                 loginAlert.className = "alert alert-success";
                 loginAlert.innerHTML = "Login successful!";
                 loginAlert.style.display = "block";
 
-                // You can also store other information like username if needed
-                //localStorage.setItem('username', data.data.username);
-                sessionStorage.setItem('username', data.data.username);
 
             } else {
                 //alert("Login failed. Please check your credentials.");
