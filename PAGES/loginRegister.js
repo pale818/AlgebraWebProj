@@ -44,6 +44,10 @@ function handleLogin(event) {
                 loginAlert.innerHTML = "Login successful!";
                 loginAlert.style.display = "block";
 
+                const channel = new BroadcastChannel("activeUser");
+                channel.postMessage({action: "login", user : data.data.username});
+                
+
 
             } else {
                 //alert("Login failed. Please check your credentials.");

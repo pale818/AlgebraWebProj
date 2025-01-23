@@ -490,7 +490,7 @@ iframe {
   }
 
   .footer-text{
-    font-size: 25px;          /* Adjust font size */
+    font-size: 22px;          /* Adjust font size */
     transform: translate(-60%, -30%);
   }
 
@@ -512,6 +512,10 @@ iframe {
     align-items: center;
     flex-direction: column;
   
+  }
+
+  .newsVideo{
+    width: 400px;
   }
 }
 /*-----------------------------------------------------------------------------------------------------------------------------*/

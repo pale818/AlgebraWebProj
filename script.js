@@ -95,6 +95,50 @@ function loadMainContent(menu) {
 // https://getbootstrap.com/docs/5.3/components/collapse/#javascript-behavior
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
 document.addEventListener('DOMContentLoaded', function () {
+  const user = sessionStorage.getItem("username");
+  userLogedIn(user);
+
+  const channel = new BroadcastChannel("activeUser");
+  channel.addEventListener("message",function (event){
+    console.log("Received event:", event.data);
+
+    if(event.data.action === "login"){
+      userLogedIn(event.data.user);
+    }
+  })
+
+
+  /* part for dropdown menu for the user menu */
+  const userNameDisplay = document.getElementById("userNameDisplay");
+  const logoffButton = document.getElementById("logoffButton");
+  const userMenu = document.getElementById("userMenu");
+  // Get username from sessionStorage
+  const userName = sessionStorage.getItem("username");
+  console.log("userName:", userName);
+
+  if (userName) {
+    if (userNameDisplay) {
+      userNameDisplay.textContent = `Welcome, ${userName}!`;
+    }
+  } else {
+    // Hide user menu if not logged in
+    if (userMenu) {
+      userMenu.style.display = "none";
+    }
+  }
+  if (logoffButton) {
+    logoffButton.addEventListener("click", function () {
+      sessionStorage.clear(); // Remove all session storage data
+      if (userNameDisplay) {
+        userNameDisplay.textContent = userName;
+      }
+      setTimeout(() => {
+        // Reload main page
+        window.parent.location.reload();
+      }, 1000);
+    });
+  }
+
   /**
    * This selects the .navbar-collapse element, which is the collapsible 
    * container of the navigation menu in Bootstrap. It toggles open and
@@ -124,8 +168,57 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
+
 /*****************************************************************************************************/ 
 
+
+/*FOR HIDING CURRICULUM WHEN NOT LOGED IN*/
+function userLogedIn(user){
+  console.log("user =", user);
+  const userloggedFirstTime = sessionStorage.getItem("userLoggedFirstTime");
+
+  const curriculumMenu = document.getElementById("curriculumMenu");
+  const loginMenu = document.getElementById("loginMenu");
+  const userMenu = document.getElementById("userMenu");
+
+  console.log(curriculumMenu);
+  console.log(loginMenu);
+  console.log(userMenu);
+
+  if (!curriculumMenu && !loginMenu && !userMenu) {
+    return;
+  }
+
+  if(user){
+    curriculumMenu.classList.remove("d-none");
+    curriculumMenu.classList.add("d-flex");
+
+    loginMenu.classList.remove("d-flex");
+    loginMenu.classList.add("d-none");
+
+    userMenu.classList.remove("d-none");
+    userMenu.classList.add("d-flex");
+
+    if ( !userloggedFirstTime) {
+      setTimeout(() => {
+        // Reload main page
+        sessionStorage.setItem("userLoggedFirstTime", true);
+        window.parent.location.reload();
+      }, 1000);
+    }
+
+  }else{
+    curriculumMenu.classList.add("d-none");
+    curriculumMenu.classList.remove("d-flex");
+  
+    loginMenu.classList.remove("d-none");
+    loginMenu.classList.add("d-flex");
+
+    userMenu.classList.remove("d-flex");
+    userMenu.classList.add("d-none");
+  }
+
+}
 
 
 

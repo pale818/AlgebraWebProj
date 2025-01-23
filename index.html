@@ -63,19 +63,33 @@
                         <a class="nav-link" onclick="navigateTo('aboutUs')">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" 
+                        <a class="nav-link" href="#"  
                         onclick="navigateTo('news')">News</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal"
+                    <li class="nav-item d-flex" id="curriculumMenu">
+                        <a class="nav-link" href="#" 
                          onclick="navigateTo('curriculum')">Curriculum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" 
+                        <a class="nav-link" href="#"  
                         onclick="loadModalContent('contact')">Contact</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item d-flex" id = "loginMenu">
                         <a class="nav-link" onclick="navigateTo('login')">Login/Register</a>
+                    </li>
+                    <li class="nav-item dropdown d-flex" id="userMenu">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            User
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" id="userPopup">
+                            <li class="dropdown-item">
+                                <strong><span id="userNameDisplay"></span></strong>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <button id="logoffButton" class="dropdown-item text-danger">Logoff</button>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
 
