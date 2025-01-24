@@ -23,9 +23,9 @@
 
     <!--STYLING-->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-          
+        .body {
+            display: flex;
+            flex-direction: column; 
         }
         .container {
             display: flex;
@@ -69,6 +69,26 @@
         table th {
             background-color: #f8f8f8;
         }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack content vertically */
+            }
+            .dropdown {
+                width: 100%; /* Ensure dropdown takes full width */
+                z-index: 100;
+            }
+            table {
+                margin-top: 20px;
+            }
+
+            .table-responsive {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+            }
+        }
     </style>
 </head>
 
@@ -94,19 +114,21 @@
         </div>
         <div>
             <lable>Selected Courses</lable>
-            <table id="selectedCoursesTable" style="width: 500px; height: 40px;">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Course</th>
-                        <th>ECTS</th>
-                        <th>Hours</th>
-                        <th>Semester</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="table-responsive">
+                <table id="selectedCoursesTable" style="width: 500px; height: 40px;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Course</th>
+                            <th>ECTS</th>
+                            <th>Hours</th>
+                            <th>Semester</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 

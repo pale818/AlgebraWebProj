@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         carouselInstance.to(index); // Move to the stored index 
     }
+
+    // CLOSE BUTTON FOR THE  GALLERY
+    const closeButton = document.getElementById("closeButton");
+    closeButton.addEventListener("click", function () {
+        window.parent.loadMainContent("news1");
+        });
 });
 
 

@@ -26,7 +26,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navigationBar">
 
         
         <div class="container-fluid">
@@ -77,19 +77,8 @@
                     <li class="nav-item d-flex" id = "loginMenu">
                         <a class="nav-link" onclick="navigateTo('login')">Login/Register</a>
                     </li>
-                    <li class="nav-item dropdown d-flex" id="userMenu">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            User
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" id="userPopup">
-                            <li class="dropdown-item">
-                                <strong><span id="userNameDisplay"></span></strong>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <button id="logoffButton" class="dropdown-item text-danger">Logoff</button>
-                            </li>
-                        </ul>
+                    <li class="nav-item d-flex" id="userMenu">
+                        <a id="logoffButton" class="nav-link">Logoff</a>
                     </li>
                 </ul>
 
@@ -110,19 +99,7 @@
                     <li class="nav-item">
                         <a class="nav-link" onclick="navigateToSection('#how-to-reach')">How to Reach Us</a>
                     </li>
-                </ul>
-
-
-                <!--------------------Navigation for Gallery (x button)-------------------------->
-                <ul id="galleryMenu" class="navbar-nav ms-auto d-none">
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-x" onclick="navigateTo('news1')">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </li>
-                </ul>
-
-
+                </ul>    
             </div>
         </div>
     </nav>

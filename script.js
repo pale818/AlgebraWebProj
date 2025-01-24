@@ -61,16 +61,13 @@ function loadMainContent(menu) {
     return ;
   }  
 
-  // default manu is main
-  setNeweMenus('main');
-
   //hiding video
   if(video) {
     video.style.display = "none";
   }
   
   // set menu for new page
-  setNeweMenus(menu);
+  setMenus(menu);
 
   /*an element that allows you to embed another HTML document within the current document. 
   It acts as a window to display content from another source, such as another webpage, a video, or interactive widgets.*/
@@ -151,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
    * the individual menu items (e.g., “Login/Register,” “Contact”).
    * Together, these provide access to the navbar and its links.
    */
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
 
   // Add Click Listeners to Each Link
   navLinks.forEach(link => {
@@ -247,10 +244,12 @@ function navigateToSection(sectionId) {
 }
 
 // togle main manu and othe rmanues
-function setNeweMenus(menu) {
+function setMenus(menu) {
   const mainMenu = document.getElementById("mainMenu");
   const aboutUsMenu = document.getElementById("aboutUsMenu");
-  const galleryMenu = document.getElementById("galleryMenu");
+  const navBar = document.getElementById("navigationBar");   
+  const mainContent = document.querySelector("#MainContent");
+
 
   mainMenu.classList.remove("d-none");
   mainMenu.classList.add("d-flex");
@@ -258,8 +257,12 @@ function setNeweMenus(menu) {
   aboutUsMenu.classList.remove("d-flex");
   aboutUsMenu.classList.add("d-none");
 
-  galleryMenu.classList.remove("d-flex");
-  galleryMenu.classList.add("d-none");
+  if(navBar){
+    navBar.style.display = "block";
+    mainContent.style.paddingTop = '75px';
+
+  }
+  
 
   
 
@@ -267,8 +270,14 @@ function setNeweMenus(menu) {
       aboutUsMenu.classList.remove("d-none");
       aboutUsMenu.classList.add("d-flex");
   } else if (menu === 'gallery'){
-    galleryMenu.classList.remove("d-none");
-    galleryMenu.classList.add("d-flex");
+
+    if(navBar){
+      navBar.style.display = "none";
+      mainContent.style.paddingTop = '0px';
+    }
+
+    mainMenu.classList.remove("d-flex");
+    mainMenu.classList.add("d-none");
   } else  {
     return; 
   } 
