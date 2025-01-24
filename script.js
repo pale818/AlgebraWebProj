@@ -1,7 +1,7 @@
 /*****************************************************************************************************/ 
 /* MODAL DIALOG */
 /*****************************************************************************************************/ 
-// Function to dynamically load content into the modal based on what the user clicked
+// Function to dynamically load Contact content into the modal
 function loadModalContent(menu) {
   const modalTitle = document.getElementById('modalTitle');
   const modalBody = document.getElementById('modalBodyContent');
@@ -9,13 +9,7 @@ function loadModalContent(menu) {
   if (menu === 'contact') {
       modalTitle.textContent = 'Contact Us';
       modalBody.innerHTML = '<iframe src="PAGES/contact.html" style="border:none;"></iframe>';
-  } else if (menu === 'login') {
-      modalTitle.textContent = '';
-      modalBody.innerHTML = '<iframe src="PAGES/login.html" width="100%" height="300px" style="border:none;"></iframe>';
-  } else {
-    modalTitle.textContent = 'Under Construction';
-    modalBody.innerHTML = '<iframe src="PAGES/underConstruction.html" width="100%" height="500px" style="border:none;"></iframe>';
-}
+  } 
 
   // Open the modal
   const modal = new bootstrap.Modal(document.getElementById('unifiedModal'));
@@ -32,7 +26,8 @@ function loadModalContent(menu) {
 // functions responsible for handling navigation, dinamically loading pages in the MainContent
 function navigateTo(pageName, imageIndex = null) {
   sessionStorage.setItem("imageIndex", imageIndex);
-  // Call loadPageContent in the parent context
+
+  //checks if that really is a function
   if (window.parent && typeof window.parent.loadMainContent === "function") {
     window.parent.loadMainContent(pageName);
   } else {
@@ -43,7 +38,6 @@ function navigateTo(pageName, imageIndex = null) {
 // this fuction is know ONLY in index.html, and it's purpose is to load
 // contend (web page) on the place of MainContent
 function loadMainContent(menu) {
-  console.log(menu);
   const video = document.getElementById("DefaultVideo");
   //pages is type dictionary
   const pages = {
@@ -55,29 +49,28 @@ function loadMainContent(menu) {
     news1: "PAGES/news1.html",
     curriculum : "PAGES/curriculum.html",
   };
-  const filePath = pages[menu]; //menu = key, pages finds value for that  key which loads into filepath
+  const filePath = pages[menu]; //key-vallue to search the path to the page
   if (!filePath){
     console.error("Page not found");
     return ;
   }  
 
-  //hiding video
+  //hiding default video when opening some page
   if(video) {
     video.style.display = "none";
   }
   
-  // set menu for new page
+  // set menu for new page(for AboutUs page)
   setMenus(menu);
 
   /*an element that allows you to embed another HTML document within the current document. 
   It acts as a window to display content from another source, such as another webpage, a video, or interactive widgets.*/
   const iframe = document.createElement("iframe"); //creating iframe
   iframe.src = filePath;  //iframe now contains a web page whose path is in filePath variable
-  const mainContent = document.getElementById("MainContent");  //document = index.html, find tag with that id and links the tag to variable mainContent
-  mainContent.style.display = "block";
-  console.log(mainContent);
-  mainContent.innerHTML = "";
-  mainContent.appendChild(iframe);
+  const mainContent = document.getElementById("MainContent");  // find tag with that id and links the tag to variable mainContent
+  mainContent.style.display = "block"; //displays the page content
+  mainContent.innerHTML = "";  //deletes what was loaded before so a new page can load
+  mainContent.appendChild(iframe); //page content is finally added to mainContent div from index
 
 }
 /*****************************************************************************************************/ 
@@ -87,10 +80,6 @@ function loadMainContent(menu) {
 /*****************************************************************************************************/ 
 /* COLLAPSE MENU PROGRAMMATICALLY FOR MOBILE SCREEN ONCE WHEN SOME MENU IS SELECTED */
 /*****************************************************************************************************/ 
-// listener for navigation bar when small mobile screen is active to collapse nav bar when some link is selected
-// source: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
-// https://getbootstrap.com/docs/5.3/components/collapse/#javascript-behavior
-// https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
 document.addEventListener('DOMContentLoaded', function () {
   const user = sessionStorage.getItem("username");
   userLogedIn(user);
@@ -105,30 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
 
-  /* part for dropdown menu for the user menu */
-  const userNameDisplay = document.getElementById("userNameDisplay");
+  //logOff button, deletes sessionStorage and reloads main page
   const logoffButton = document.getElementById("logoffButton");
-  const userMenu = document.getElementById("userMenu");
-  // Get username from sessionStorage
-  const userName = sessionStorage.getItem("username");
-  console.log("userName:", userName);
-
-  if (userName) {
-    if (userNameDisplay) {
-      userNameDisplay.textContent = `Welcome, ${userName}!`;
-    }
-  } else {
-    // Hide user menu if not logged in
-    if (userMenu) {
-      userMenu.style.display = "none";
-    }
-  }
   if (logoffButton) {
     logoffButton.addEventListener("click", function () {
-      sessionStorage.clear(); // Remove all session storage data
-      if (userNameDisplay) {
-        userNameDisplay.textContent = userName;
-      }
+      sessionStorage.clear(); 
       setTimeout(() => {
         // Reload main page
         window.parent.location.reload();
@@ -143,12 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
    */
   const navbar = document.querySelector('.navbar-collapse');
 
-  /**
-   * This selects all elements with the .nav-link class. These are 
-   * the individual menu items (e.g., “Login/Register,” “Contact”).
-   * Together, these provide access to the navbar and its links.
-   */
-  const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+
+  /*This selects all elements with the .nav-link class and listen/waits for every menu*/
+  const navLinks = document.querySelectorAll('.nav-link');
 
   // Add Click Listeners to Each Link
   navLinks.forEach(link => {
@@ -166,36 +133,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+
 /*****************************************************************************************************/ 
-
-
 /*FOR HIDING CURRICULUM WHEN NOT LOGED IN*/
+/*************************************************************************************************** */
 function userLogedIn(user){
   console.log("user =", user);
   const userloggedFirstTime = sessionStorage.getItem("userLoggedFirstTime");
 
   const curriculumMenu = document.getElementById("curriculumMenu");
   const loginMenu = document.getElementById("loginMenu");
-  const userMenu = document.getElementById("userMenu");
+  const userMenu = document.getElementById("userMenu"); //logOffmenu
 
-  console.log(curriculumMenu);
-  console.log(loginMenu);
-  console.log(userMenu);
-
+  
   if (!curriculumMenu && !loginMenu && !userMenu) {
     return;
   }
 
   if(user){
+    //curriculum is added
     curriculumMenu.classList.remove("d-none");
     curriculumMenu.classList.add("d-flex");
 
+    //login is removed
     loginMenu.classList.remove("d-flex");
     loginMenu.classList.add("d-none");
 
+    //logOff is added
     userMenu.classList.remove("d-none");
     userMenu.classList.add("d-flex");
 
+    //when user is loged in for first time page reloads to main page
     if ( !userloggedFirstTime) {
       setTimeout(() => {
         // Reload main page
@@ -205,12 +174,15 @@ function userLogedIn(user){
     }
 
   }else{
+    //curriculum is removed
     curriculumMenu.classList.add("d-none");
     curriculumMenu.classList.remove("d-flex");
   
+    //login is added
     loginMenu.classList.remove("d-none");
     loginMenu.classList.add("d-flex");
 
+    //logOff is removed
     userMenu.classList.remove("d-flex");
     userMenu.classList.add("d-none");
   }
@@ -220,15 +192,13 @@ function userLogedIn(user){
 
 
 /*****************************************************************************************************/ 
-/* NAVIGATE TO SECTION ON THE PAGE */
+/* NAVIGATE TO SECTION ON THE PAGE (ABOUT US) */
 /*****************************************************************************************************/ 
-// function used to navigate to some section on the page
-// example is aboutus page which has sections
 // When user clicks on some manu like "history" it starts form the index.html 
 // which calls this function and sends sectionId to the aboutus.html
 // aboutus.html has it's script which listens for the message and then scrolls to the sections
-function navigateToSection(sectionId) {
 
+function navigateToSection(sectionId) {
   // Find the iframe
   const iframe = document.querySelector("#MainContent iframe");
   if (iframe && iframe.contentWindow) {
@@ -245,15 +215,19 @@ function navigateToSection(sectionId) {
 
 // togle main manu and othe rmanues
 function setMenus(menu) {
+
   const mainMenu = document.getElementById("mainMenu");
   const aboutUsMenu = document.getElementById("aboutUsMenu");
   const navBar = document.getElementById("navigationBar");   
   const mainContent = document.querySelector("#MainContent");
 
+//DEFAULT
 
+  //main menu is added
   mainMenu.classList.remove("d-none");
   mainMenu.classList.add("d-flex");
 
+  //about menu is hidden
   aboutUsMenu.classList.remove("d-flex");
   aboutUsMenu.classList.add("d-none");
 
@@ -262,27 +236,28 @@ function setMenus(menu) {
     mainContent.style.paddingTop = '75px';
 
   }
-  
 
-  
 
+  //ABOUT US
   if (menu === 'aboutUs') {
+    //about menu is added
       aboutUsMenu.classList.remove("d-none");
       aboutUsMenu.classList.add("d-flex");
   } else if (menu === 'gallery'){
 
+    //remove navBar
     if(navBar){
       navBar.style.display = "none";
       mainContent.style.paddingTop = '0px';
     }
 
-    mainMenu.classList.remove("d-flex");
-    mainMenu.classList.add("d-none");
   } else  {
     return; 
   } 
+
 
   mainMenu.classList.remove("d-flex");
   mainMenu.classList.add("d-none");
 }
 /*****************************************************************************************************/ 
+

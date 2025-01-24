@@ -76,7 +76,7 @@
                 flex-direction: column; /* Stack content vertically */
             }
             .dropdown {
-                width: 100%; /* Ensure dropdown takes full width */
+                width: 100%;  /* Ensure dropdown takes full width */
                 z-index: 100;
             }
             table {
@@ -86,7 +86,6 @@
             .table-responsive {
                 width: 100%;
                 overflow-x: auto;
-                -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
             }
         }
     </style>
@@ -113,6 +112,8 @@
             </div>
         </div>
         <div>
+
+            <!--builds the table of courses(HEADER)-->
             <lable>Selected Courses</lable>
             <div class="table-responsive">
                 <table id="selectedCoursesTable" style="width: 500px; height: 40px;">
@@ -132,6 +133,8 @@
         </div>
     </div>
 
+    <!-- Alert for displaying curriculum errors -->
+    <div id="curriculumAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
 
     <br>
     <br>

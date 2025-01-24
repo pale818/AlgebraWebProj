@@ -9,6 +9,8 @@ https://getbootstrap.com/docs/5.0/getting-started/introduction/
  b) carousel:
     https://getbootstrap.com/docs/5.3/components/carousel/
     https://www.w3schools.com/bootstrap5/bootstrap_carousel.php
+ c) https://getbootstrap.com/docs/5.0/utilities/flex/
+    https://getbootstrap.com/docs/5.0/utilities/display/#hiding-elements 
 
 
 
@@ -33,3 +35,14 @@ https://dev.to/hardiquedasore/how-to-embed-google-map-without-api-key-1ii7
     3) https://dev.to/dawkaka/css-animation-a-circle-with-smaller-circles-orbiting-it-307f
     4) https://js6450.github.io/fundamental-css-animation.html
     5) https://dev.to/eidorianavi/an-introduction-to-animation-and-keyframes-in-css-30mi
+
+
+6) messaging
+    https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event?utm_source=chatgpt.com
+    https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+
+
+7) listener for navigation bar when small mobile screen is active to collapse nav bar when some link is selected
+// source: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+// https://getbootstrap.com/docs/5.3/components/collapse/#javascript-behavior
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event

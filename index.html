@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Link to the external CSS file -->
+    <!-- Link to the  CSS file -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Link to the external JavaScript file -->
+    <!-- Link to the  JavaScript file -->
     <script src="script.js"></script>
 
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS (requires Popper.js for modals) -->
+    <!-- Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
@@ -24,8 +24,12 @@
 </head>
 
 
+
 <body>
+
     <!-- Navbar -->
+    <!--class from bootstrap-->
+    <!--id used for removing navbar if needed(in my case for the gallery)-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navigationBar">
 
         
@@ -36,7 +40,7 @@
                 <img class="imgTitle" src="IMAGES/Algebra-logo.png">
             </a>
 
-            <!-- title brand -->
+            <!-- title -->
             <a class="navbar-brand" href="index.html">Algebra University</a>
 
             <!-- Hamburger button for mobile view -->
@@ -45,16 +49,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Collapsible menu items -->
+            <!--Menu items -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 
-
                 <!-- Main Navbar -->
-                <!--
-                    d-flex, d-none  - for showing and hiding elements
-                    https://getbootstrap.com/docs/5.0/utilities/flex/
-                    https://getbootstrap.com/docs/5.0/utilities/display/#hiding-elements
-                -->
+                <!--d-flex, d-none  - for showing and hiding elements-->
+
                 <ul id="mainMenu" class="navbar-nav ms-auto d-flex">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.html" onclick="navigateTo('main')">Home</a>
@@ -106,9 +106,9 @@
 
     
 
-    <!-- Full-screen video background section -->
+    <!--Default Backround video-->
     <div class="video-bg" id ="DefaultVideo" style="display:block;">
-        <video autoplay muted loop>
+        <video autoplay muted loop playsinline>
             <source src= "IMAGES/typingLaptop.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -117,10 +117,11 @@
         </div>
     </div>
 
-    <!--Main content which replaces the default video-->
+
+    <!--Main content- for loading all the pages-->
     <div class="MainContent" id = "MainContent"style="display:none;"></div>
 
-    <!-- Modal View/ pop-up window  -->
+    <!-- Modal View/ pop-up window for Contact -->
     <div class="modal fade modal-l" id="unifiedModal" tabindex="-1" aria-labelledby="unifiedModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -128,8 +129,10 @@
                     <h5 class="modal-title my-title" id="modalTitle">Modal Title</h5>
                 </div>
                 <div  class = "modal-body" id="modalBodyContent">
-                    <!-- Content will be loaded dynamically -->
+                    <!-- Content will be loaded here dynamically when window is opened -->
                 </div>
+
+                <!--closing button for contact-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-Myclose" data-bs-dismiss="modal">Close</button>
                 </div>

@@ -18,17 +18,9 @@ function handleCheckbox(event) {
         hiddenCheckboxInput.value = 'false';
     }
 
-    // Append the hidden input to the form before submission
-    /*
-    In HTML forms, when two inputs share the same name attribute, the last one in the 
-    DOM (Document Object Model) order usually overrides the others during form submission. 
 
-    So in HTML there is
-    <input type="checkbox" id="newsletter" name="ReceiveNewsletter" value="true"> Subscribe to newsletter
-    with the same name ReceiveNewsletter like hiddenCheckboxInput but since hiddenCheckboxInput is the last 
-    one, it will be send in the POST method
-    */
+
+    //the value in hiddenCheckbocInout is saved, not the deafult one from html
     form.appendChild(hiddenCheckboxInput);
 
-    // Allow the form to be submitted
 }

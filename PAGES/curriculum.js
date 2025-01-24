@@ -1,5 +1,7 @@
 
+//listens for page loading, 
 document.addEventListener('DOMContentLoaded', function () {
+
 
     getCurriculum();
 
@@ -44,10 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+
 function getCurriculum(event) {
     
-
-    const userName = sessionStorage.getItem('username'); //gets username from login 
+    //reads user name and token from sessionStorage from browser
+    const userName = sessionStorage.getItem('username'); 
     const token = sessionStorage.getItem('jwtToken');
 
     //if user is not logged in
@@ -55,7 +59,8 @@ function getCurriculum(event) {
         return;
     }
 
-
+    //user is logged in
+    //fetch the provided list of curriculums and save them in json format in session storage
     fetch("https://www.fulek.com/data/api/supit/curriculum-list/en", {
         method: "GET",
         headers: {
@@ -67,23 +72,24 @@ function getCurriculum(event) {
         .then(data => {
             if (data.isSuccess && data.statusCode === 200) {
 
+                //if api request works the whole list is saved in sessionStorage
                 sessionStorage.setItem('curriculum', JSON.stringify(data.data));
 
             } else {
-                //alert("Login failed. Please check your credentials.");
-                // Set failure message
-                const loginAlert = document.getElementById("loginAlert");
-                loginAlert.className = "alert alert-danger";
-                loginAlert.innerHTML = data.errorMessages[0];
-                loginAlert.style.display = "block";
+                // Set failure message if request doesnt work,route exists
+                const curriculumAlert = document.getElementById("curriculumAlert");
+                curriculumAlert.className = "alert alert-danger";
+                curriculumAlert.innerHTML = data.errorMessages[0];
+                curriculumAlert.style.display = "block";
             }
         })
         .catch(error => {
+            //if the route does not exist
             console.error("Error:", error);
-            const loginAlert = document.getElementById("loginAlert");
-            loginAlert.className = "alert alert-danger";
-            loginAlert.innerHTML = "An error occurred. Please try again.";
-            loginAlert.style.display = "block";
+            const curriculumAlert = document.getElementById("curriculumAlert");
+            curriculumAlert.className = "alert alert-danger";
+            curriculumAlert.innerHTML = "An error occurred. Please try again.";
+            curriculumAlert.style.display = "block";
             console.error("Error:", error);
         });
 }
@@ -112,7 +118,7 @@ function selectCourse(course) {
     `;
     selectedCoursesTable.appendChild(row);
 
-    // Clear dropdown and input
+    // Clear dropdown and input when curriculum is added to table
     courseDropdown.style.display = 'none';
     courseInput.value = '';
 }

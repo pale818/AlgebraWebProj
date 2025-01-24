@@ -25,14 +25,13 @@
 
         <!-- Register Form (Initially Hidden) -->
         <form id="registerForm">
-            <!-- Username input -->
 
+            <!-- Username input -->
             <input type="text" id="registerUsername" class="form-control" required />
             <label class="form-label" for="registerUsername">Username</label>
           
 
             <!-- Password input -->
-         
             <input type="password" id="registerPassword" class="form-control" required />
             <label class="form-label" for="registerPassword">Password</label>
             
@@ -40,6 +39,11 @@
             <!-- Register button -->
             <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 w-100"
                 onclick="handleRegister(event)">Register</button>
+
+             <!-- Alert for displaying login/register errors -->
+             <div id="loginAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+                
         </form>
         <div> Have an account? <a href ="#" onclick="navigateTo('login')">Login</a>  </div> 
     </div>

@@ -13,9 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // check if carouselElement exists - meaning the page with the carousel is loaded
     if (carouselElement) {
         
-        // object carouselInstance of class Carousel (from bootstrap) 
-        // yellow Carousel is a class and a constructor
-
+    
         //this makes a new object from Carousel class by using carouselElement and makes a constructor that does not allow automatic sliding of pictures 
         const carouselInstance = new bootstrap.Carousel(carouselElement, {
             interval: false, // Prevents auto-sliding

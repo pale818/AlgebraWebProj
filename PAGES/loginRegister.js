@@ -1,5 +1,4 @@
 // Handle login form submission
-// Handle login form submission
 function handleLogin(event) {
     event.preventDefault(); // Prevent default form submission behavior
     const username = document.getElementById("loginUsername").value;
@@ -29,28 +28,26 @@ function handleLogin(event) {
         .then(data => {
             if (data.isSuccess && data.statusCode === 200) {
 
-                // Store the token in localStorage (or sessionStorage if preferred)
-                //localStorage.setItem('jwtToken', token);
-                // Store the token in sessionStorag (or sessionStorage if preferred)
+                // Store the token in sessionStorage
                 sessionStorage.setItem('jwtToken', data.data.token);
 
                 // You can also store other information like username if needed
                 sessionStorage.setItem('username', data.data.username);
 
-                 //alert("Login successful!");
+              
                 // Set success message
                 const loginAlert = document.getElementById("loginAlert");
                 loginAlert.className = "alert alert-success";
                 loginAlert.innerHTML = "Login successful!";
                 loginAlert.style.display = "block";
 
+                //if user is logged in a message is sent and curriculum page is activated
                 const channel = new BroadcastChannel("activeUser");
                 channel.postMessage({action: "login", user : data.data.username});
-                
 
 
             } else {
-                //alert("Login failed. Please check your credentials.");
+                
                 // Set failure message
                 const loginAlert = document.getElementById("loginAlert");
                 loginAlert.className = "alert alert-danger";
@@ -68,11 +65,26 @@ function handleLogin(event) {
         });
 }
 
+
+
+
+
 // Handle register form submission
 function handleRegister(event) {
     event.preventDefault(); // Prevent default form submission behavior
     const username = document.getElementById("registerUsername").value;
     const password = document.getElementById("registerPassword").value;
+
+
+    
+    if(username == "" || password == ""){
+
+        const loginAlert = document.getElementById("loginAlert");
+        loginAlert.className = "alert alert-danger";
+        loginAlert.innerHTML = "Login unsuccessful!";
+        loginAlert.style.display = "block";
+        return;
+    }
 
     fetch ("https://www.fulek.com/data/api/user/register", {
         method: "POST",
@@ -86,13 +98,21 @@ function handleRegister(event) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);  // Add this to check the API response
+
             const loginAlert = document.getElementById("loginAlert");
-            if (data.isSuccess) {  // Change this line based on the actual response structure
+
+            if (data.isSuccess) {  
+
                 //alert("Registration successful!");
                 loginAlert.className = "alert alert-success";
                 loginAlert.innerHTML = "Registration successful!";
                 loginAlert.style.display = "block";
+
+                const channel = new BroadcastChannel("activeUser");
+                channel.postMessage({action: "register", user :""});
+
+    
+
             } else {
                 //alert("Registration failed. Please check your details.");
                 loginAlert.className = "alert alert-danger";
@@ -110,23 +130,4 @@ function handleRegister(event) {
         });
 }
 
-// Toggle between login and register forms
-function toggleForms() {
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
-    const formTitle = document.getElementById('formTitle');
-    const toggleLabel = document.getElementById('toggleLabel');
-    const formToggle = document.getElementById('formToggle');
 
-    if (formToggle.checked) {
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'block';
-        formTitle.textContent = 'Register';
-        toggleLabel.textContent = 'Switch to Login';
-    } else {
-        loginForm.style.display = 'block';
-        registerForm.style.display = 'none';
-        formTitle.textContent = 'Login';
-        toggleLabel.textContent = 'Switch to Register';
-    }
-}
